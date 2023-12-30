@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learn-kubernetes-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-docker-kubernetes
+  template:
+    metadata:
+      labels:
+        app: node-docker-kubernetes
+    spec:
+      containers:
+      - name: node-docker-kubernetes
+        image: keshav510/taskmanager
+        ports:
+        - containerPort: 3000
